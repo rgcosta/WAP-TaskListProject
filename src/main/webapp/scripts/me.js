@@ -21,16 +21,16 @@ $(function () {
             $(".error").append("You must inform a due date<br>");
             submitFlag = false;
         }
-        //
-        // if ($("#category").val() === "") {
-        //     $(".error").append("Select one category<br>");
-        //     submitFlag = false;
-        // }
 
-        // if ($("#priority").val() === "") {
-        //     $(".error").append("Select one priority<br>");
-        //     submitFlag = false;
-        // }
+        if ($("#category").val() === "") {
+            $(".error").append("Select one category<br>");
+            submitFlag = false;
+        }
+
+        if ($("#priority").val() === "") {
+            $(".error").append("Select one priority<br>");
+            submitFlag = false;
+        }
 
         if (submitFlag)
             this.submit();
@@ -74,10 +74,4 @@ $(function () {
                 });
         });
     });
-
-    $("#loading").ajaxStart(function () {
-        $(this).css("display", "block");
-    }).ajaxStop(function () {
-        $(this).css("display", "none");
-    })
 });

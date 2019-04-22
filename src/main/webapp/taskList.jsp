@@ -31,6 +31,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="css/basictable.css" />
     <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
     <script type="text/javascript" src="js/task.js"></script>
+    <%-- start: jquery datatable--%>
+    <link href="media/dataTables/demo_page.css" rel="stylesheet" type="text/css" />
+    <link href="media/dataTables/demo_table.css" rel="stylesheet" type="text/css" />
+    <link href="media/dataTables/demo_table_jui.css" rel="stylesheet" type="text/css" />
+    <link href="media/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="media/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+
+    <%-- end:  jquery datatable--%>
 </head>
 <body>
 <div class="page-container">
@@ -42,90 +52,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ol>
             <!--grid-->
             <div class="grid-form">
-                <div class="grid-form1" id="newTask">
-                    <h2 id="forms-example" class="">New Task</h2>
-                    <div class="error"></div>
-                    <form id="taskForm" method="post" action="${pageContext.request.contextPath}task">
-                        <div class="form-group">
-                            <label for="task">Task</label>
-                            <input type="text"  id="task" required="required" name="task" class="form-control"
-                                   placeholder="Breakfast at Tiffanys" />
-                        </div>
-                        <div class="form-group">
-                            <label for="requiredby">Required by</label>
-                            <input type="date" id="requiredby" required="required" name="requiredBy" />
-                        </div>
-                        <div class="form-group">
-                            <label for="priority">Priority</label>
-                            <select name="priority" id="priority">
-                                <option value="Low">Low</option>
-                                <option value="Normal" selected>Normal</option>
-                                <option value="High">High</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Category</label>
-                            <select name="category" id="category">
-                                <option value="Personal">Personal</option>
-                                <option value="Work">Work</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8 ">
-                                <button class="btn-primary btn" id="saveTask">Save</button>
-                                <button class="btc-default btn" id="clearTask">Clear</button>
-                        </div>
-                        </div>
-                    </form>
-
-                </div>
-                <!----->
                 <div class="grid-form1">
-                    <h3 id="forms-horizontal">Tasks</h3>
-                    <table id="tblTasks">
-                        <colgroup>
-                            <col width="40%">
-                            <col width="15%">
-                            <col width="15%">
-                            <col width="15%">
-                            <col width="15%">
-                        </colgroup>
+                    <h2 id="forms-example" class="">Tasks</h2>
+                    <table class="table table-striped" id="tableData">
                         <thead>
                         <tr>
-                            <th>Task</th>
-                            <th>Due</th>
+                            <th>Title</th>
+                            <th>Due Date</th>
                             <th>Priority</th>
                             <th>Category</th>
-                            <th>Actions</th>
+                            <th>User</th>
+                            <th>Team</th>
+                            <th>Finish Date</th>
+                            <th>Rate</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="task" items="${tasks}" >
-                                <tr id="row${task.id}" class="task-row">
-                                    <td>${task.title}</td>
-                                    <td class="duedate">${task.duedate}</td>
-                                    <td>${task.priority}</td>
-                                    <td>${task.category}</td>
-                                    <td>
-                                        <div class="row">
-                                            <a href="/done=${task.id}" class="doneTask"><i class="material-icons">done</i></a>
-                                            <a href="/task/${task.id}/edit" class="editTask"><i class="material-icons">edit</i></a>
-                                            <a href="/task/${task.id}/delete" class="deleteTask"><i class="material-icons">delete_forever</i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                        <c:forEach items="${allTasks}" var="t">
+                            <tr>
+                                <td>${t.title}</td>
+                                <td>${t.dueDate}</td>
+                                <td>${t.priority}</td>
+                                <td>${t.category}</td>
+                                <td>${t.userName}</td>
+                                <td>${t.teamName}</td>
+                                <td>${t.finishDate}</td>
+                                <td>${t.rate}</td>
+                                <td>
+                                    <a href="/project/task?action=update&id=${t.id}" class="btn btn-warning">Update</a>
+                                    <a href="/project/task?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
-                    <div class="form-group"></div>
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <ul class="bt-list"><li><a href="#" class="hvr-icon-float-away col-24" id="btnAddTask">Add Task</a></li>
-                        </div>
-                    </div>
                 </div>
                 <!---->
             </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#tableData").dataTable({
+                        "sPaginationType": "full_numbers",
+                        "bJQueryUI": true
+                    });
+                });
+            </script>
             <!--//grid-->
 
             <!-- script-for sticky-nav -->
