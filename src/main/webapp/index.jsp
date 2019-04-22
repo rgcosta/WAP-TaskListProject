@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              <!--header start here-->
 				<div class="header-main">
 					<div class="logo-w3-agile">
-								<h1><a href="index.jsp">Pooled</a></h1>
+								<h1><a href="index.html">Pooled</a></h1>
 							</div>
 					<div class="w3layouts-left">
 							
@@ -220,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 		<ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a> <i class="fa fa-angle-right"></i></li>
+                <li class="breadcrumb-item"><a href="index.html">Home</a> <i class="fa fa-angle-right"></i></li>
             </ol>
 <!--four-grids here-->
 		<div class="four-grids">
@@ -617,8 +617,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            <div class="menu">
 									<ul id="menu" >
 										<li><a href="index.jsp"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
-										
-										
+										<li><a href="/account"><i class="fa fa-file-text-o"></i> <span>Account</span><div class="clearfix"></div></a></li>
+										<li><a href="/task"><i class="fa fa-check-square-o nav_icon"></i> <span>Task</span><div class="clearfix"></div></a></li>
+
+
 										 <li id="menu-academico" ><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Inbox</span><div class="clearfix"></div></a></li>
 									<li><a href="gallery.html"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span><div class="clearfix"></div></a></li>
 									<li id="menu-academico" ><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span><div class="clearfix"></div></a></li>
