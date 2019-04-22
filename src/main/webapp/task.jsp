@@ -31,11 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="css/basictable.css" />
     <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
     <script type="text/javascript" src="js/task.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#table').basictable();
-        });
-    </script>
 </head>
 <body>
 <div class="page-container">
@@ -106,16 +101,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </thead>
                         <tbody>
                             <c:forEach var="task" items="${tasks}" >
-                                <tr>
+                                <tr id="row${task.id}" class="task-row">
                                     <td>${task.title}</td>
-                                    <td>${task.duedate}</td>
+                                    <td class="duedate">${task.duedate}</td>
                                     <td>${task.priority}</td>
                                     <td>${task.category}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="/task/${task.id}/done" id="doneTask"><i class="material-icons">done</i></a>
-                                            <a href="/task/${task.id}/edit" id="editTask"><i class="material-icons">edit</i></a>
-                                            <a href="/task/${task.id}/delete" id="deleteTask"><i class="material-icons">delete_forever</i></a>
+                                            <a href="/done=${task.id}" class="doneTask"><i class="material-icons">done</i></a>
+                                            <a href="/task/${task.id}/edit" class="editTask"><i class="material-icons">edit</i></a>
+                                            <a href="/task/${task.id}/delete" class="deleteTask"><i class="material-icons">delete_forever</i></a>
                                         </div>
                                     </td>
                                 </tr>

@@ -21,7 +21,7 @@ $(function () {
             $(".error").append("You must inform a due date<br>");
             submitFlag = false;
         }
-        
+
         if ($("#category").val() === "") {
             $(".error").append("Select one category<br>");
             submitFlag = false;
@@ -46,4 +46,38 @@ $(function () {
         $("#category").val("Personal");
     });
 
+    //highlight the overdue task
+    $("#tblTasks .task-row").each(function () {
+
+        var dueDateStr = $(this).find(".duedate").html();
+        var dueDate = new Date(dueDateStr);
+        if(dueDate.getTime() < new Date().getTime()) {
+            $(this).css("background-color", "#F17060");
+        }
+    });
+
+    $(".doneTask").each(function () {
+        var button = $(this);
+        $(this).click(function (evt) {
+            evt.preventDefault();
+
+            var taskId = $(this).attr("href").match(/done=([^&]+)/)[1];
+            //
+            // $(this).parents("tr").remove();
+
+            $.ajax("/task/" + taskId + "/done", { "type": "POST", "id": taskId})
+                .done(function () {
+                    $(this).parents("tr").remove();
+                })
+                .fail(function () {
+                    alert("It was not possible to mark the task as completed. Try again.")
+                });
+        });
+    });
+
+    $("#loading").ajaxStart(function () {
+        $(this).css("display", "block");
+    }).ajaxStop(function () {
+        $(this).css("display", "none");
+    })
 });
