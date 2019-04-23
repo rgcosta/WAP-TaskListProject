@@ -27,18 +27,43 @@ $(function () {
             submitFlag = false;
         }
 
-        if ($("#developer").val() === undefined) {
-            $(".error").append("You must select one developer from the list<br>");
-            submitFlag = false;
+
+        console.log();
+        if ($("input[name=category]:checked").val() === "PERSONAL") {
+            if ($("#developer").val() === "") {
+                $(".error").append("You must select one developer from the list<br>");
+                submitFlag = false;
+            }
+        } else if ($("input[name=category]:checked").val() === "TEAM") {
+            if ($("#developer").val() === "") {
+                console.log(1);
+                $(".error").append("You must select one developer from the list<br>");
+                submitFlag = false;
+            }
+
+            console.log(2);
+            if ($("#team").val() === "") {
+                console.log(3);
+                $(".error").append("You must select one team from the list<br>");
+                submitFlag = false;
+            }
         }
 
-        if ($("#team").val() === undefined) {
-            $(".error").append("You must select one team from the list<br>");
-            submitFlag = false;
-        }
-
-        if (submitFlag)
+        if (submitFlag) {
             $("#taskForm").submit();
+        }
+
+    });
+
+    //Change fields according to the category selected
+    $("input[name=category]").change(function () {
+        if ($(this).val() === "PERSONAL") {
+            $("#teamLabel").hide();
+            $("#team").hide();
+        } else if ($(this).val() === "TEAM") {
+            $("#teamLabel").show();
+            $("#team").show();
+        }
     });
 
     //Clear form fields

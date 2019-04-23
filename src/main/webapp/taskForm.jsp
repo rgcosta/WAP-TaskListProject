@@ -20,7 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
 <%--    <script src="js/jquery-3.3.1.min.js"></script>--%>
-    <script src="<c:url value="js/task.js"/>"></script>
+    <script src="<c:url value="js/taskManager.js"/>"></script>
 
     <!-- //jQuery -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="error" style="color: red"></div>
                     <form action="task" method="post" id="taskForm">
                         <div class="form-group">
-                            <label>Title:</label>
+                            <label>Description:</label>
                             <input type="text" name="title" id="title" value="${task.title}" class="form-control"/>
                         </div>
                         <div class="form-group">
@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Team:</label>
+                            <label id="teamLabel">Team:</label>
                             <select name="teamName" id="team">
                                 <option value="">Select Team</option>
                                 <c:forEach var="dev" items="${teamFilter}">
