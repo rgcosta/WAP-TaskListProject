@@ -1,11 +1,3 @@
-#newTask {
-    display: none;
-}
-
 .error {
     color: red;
-}
-
-.removeRow {
-    display: none;
 }

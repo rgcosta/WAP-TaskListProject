@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Task {
     private int id;
     private String title;
@@ -7,7 +9,6 @@ public class Task {
     private String priority;
     private String category;
     private int userId;
-    private int teamId;
     private String finishDate;
     private int rateById;
     private String rate;
@@ -62,14 +63,6 @@ public class Task {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
     }
 
     public String getFinishDate() {
