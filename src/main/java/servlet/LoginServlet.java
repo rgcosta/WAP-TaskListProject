@@ -1,10 +1,13 @@
 package servlet;
 
+import dao.TaskDataAccess;
 import dao.UserDataAccess;
 import model.User;
 import model.UserGlobal;
 
 import javax.servlet.RequestDispatcher;
+
+import static model.UserGlobal.userRole;
 
 @javax.servlet.annotation.WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
@@ -23,30 +26,27 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         if (user==null){
             request.setAttribute("message","No User Found");
             rd=request.getRequestDispatcher("/Login.jsp");
-
+            rd.forward(request,response);
         }
-        else {
-            if(user.getEmail().trim().equals(email)&&user.getPassword().trim().equals(password)){
+        else { //if successfully logged in
+            if(user.getEmail().trim().equals(email) && user.getPassword().trim().equals(password))
+            {
 
-                if(user.getRole().toLowerCase().equals("manager")){
-                    UserGlobal.userId=user.getId();
-                    UserGlobal.userName=user.getName();
-                    UserGlobal.userRole=user.getRole();
-                request.setAttribute("allUsers", UserDataAccess.getAllUsers());
-                rd=request.getRequestDispatcher("/User.jsp");}
+                UserGlobal.userId=user.getId();
+                UserGlobal.userName=user.getName();
+                UserGlobal.userRole=user.getRole();
 
-                else if(user.getRole().toLowerCase().equals("developer")){
-                    request.setAttribute("userValue",user);
-                    rd=request.getRequestDispatcher("/UserProfile.jsp");
-                }
-
+                    request.setAttribute("allTasks", TaskDataAccess.getAll());
+                    rd=request.getRequestDispatcher("/taskList.jsp");
             }
             else {
                 request.setAttribute("message","No User Found");
                 rd=request.getRequestDispatcher("/Login.jsp");
             }
+
+            rd.forward(request,response);
         }
-        rd.forward(request,response);
+
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {

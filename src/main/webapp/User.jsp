@@ -53,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ol>
 
 
-                <button id="addUserButton" onclick="location.href='AllUserServlet?action=new';">&#43 Add User</button>
-                <button id="viewUserButton" onclick="location.href='AllUserServlet';" > View User List</button>
+<%--                &lt;%&ndash;<button id="addUserButton" onclick="location.href='AllUserServlet?action=new';">&#43 Add User</button>--%>
+<%--                <button id="viewUserButton" onclick="location.href='AllUserServlet';" > View User List</button>&ndash;%&gt;--%>
 
 <!-- Form here-->
 
@@ -128,6 +128,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <!-- /Bootstrap Core JavaScript -->
+
+    <script>
+        $(document).ready(function() {
+            tasksController.init($('#taskPage'));
+        });
+    </script>
 
 </body>
 </html>

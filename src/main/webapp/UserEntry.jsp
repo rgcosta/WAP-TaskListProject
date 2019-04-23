@@ -60,9 +60,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li>
                 <select name="role">
                     <option value="" selected="selected">Select Role</option>
-                    <option value="admin">Admin</option>
-                    <option value="project_manager">Project Manager</option>
-                    <option value="developer">Developer</option>
+                    <option value="ADMIN">Admin</option>
+                    <option value="MANAGER">Project Manager</option>
+                    <option value="DEVELOPER">Developer</option>
                 </select>
             </li>
 
@@ -76,6 +76,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </li>
         </ul>
     </form>
+
+    <c:import url="sidemenu.jsp" />
 </div>
 </body>
 </html>
