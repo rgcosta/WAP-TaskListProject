@@ -229,8 +229,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="icon">
 								<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 							</div>
-							<div class="four-text">
-								<h3>User</h3>
+							<div class="four-text" >
+								<h3><a href="AllUserServlet">User</a></h3>
 								<h4> 24,420  </h4>
 								
 							</div>
@@ -243,7 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
 							</div>
 							<div class="four-text">
-								<h3>Clients</h3>
+								<h3><a href="Login.jsp">Login</a></h3>
 								<h4>15,520</h4>
 
 							</div>
@@ -256,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>
 							</div>
 							<div class="four-text">
-								<h3>Projects</h3>
+								<h3><a href="Team.jsp">Team/a></h3>
 								<h4>12,430</h4>
 								
 							</div>
