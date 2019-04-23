@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.TaskDataAccess;
+import dao.TeamDataAccess;
 import model.Task;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @WebServlet(name = "Task",urlPatterns = "/task")
 public class TaskController extends HttpServlet {
@@ -28,10 +33,13 @@ public class TaskController extends HttpServlet {
                 Task task = new Task();
                 request.setAttribute("task", task);
                 request.setAttribute("action", "new");
+                request.setAttribute("teamFilter", TeamDataAccess.getDistrictTeam());
                 rd = request.getRequestDispatcher("/taskForm.jsp");
             }else if(action.equals("update")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("task", TaskDataAccess.getTaskById(id));
+                request.setAttribute("teamFilter", TeamDataAccess.getDistrictTeam());
+                request.setAttribute("selectedTeam", request.getParameter("teamName"));
                 request.setAttribute("action", "update");
                 rd = request.getRequestDispatcher("/taskForm.jsp");
             }else if(action.equals("delete")){
@@ -61,14 +69,13 @@ public class TaskController extends HttpServlet {
         task.setPriority(request.getParameter("priority"));
         task.setCategory(request.getParameter("category"));
         task.setUserId(2);
-        task.setTeamId(1);
+        task.setTeamName(request.getParameter("teamName"));
         task.setFinishDate(request.getParameter("finishDate"));
         task.setRateById(2);
         task.setRate(request.getParameter("rate"));
         task.setRateDate(request.getParameter("rateDate"));
-        task.setUserName(request.getParameter("userId"));
-        task.setTeamName(request.getParameter("teamId"));
-        task.setRateByName(request.getParameter("2"));
+//        task.setUserName(request.getParameter("userId"));
+//        task.setRateByName(request.getParameter("2"));
         TaskDataAccess db = new TaskDataAccess();
 
         if(action.equals("new")){

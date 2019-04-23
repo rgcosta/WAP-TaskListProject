@@ -3,14 +3,11 @@ $(function () {
     console.log("log");
     $("#saveTask").click(function (evt) {
 
-        console.log("clicked");
-
         evt.preventDefault();
         $(".error").empty();
         var submitFlag = true;
 
         if ($("#title").val() === "") {
-            console.log("title");
             $(".error").append("You must fill in the task field<br>");
             submitFlag = false;
         }
@@ -40,10 +37,8 @@ $(function () {
             submitFlag = false;
         }
 
-        console.log("submit1");
         if (submitFlag)
             this.submit();
-        console.log("submit2");
     });
 
     //Clear form fields
@@ -84,5 +79,3 @@ $(function () {
     //     });
     // });
 });
-
-console.log("log2");

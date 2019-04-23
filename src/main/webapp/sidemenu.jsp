@@ -15,7 +15,20 @@
         <ul id="menu" >
             <li><a href="index"><i class="fa fa-tachometer"></i> <span>Dashboard</span><div class="clearfix"></div></a></li>
             <li><a href="account"><i class="fa fa-file-text-o"></i> <span>Account</span><div class="clearfix"></div></a></li>
-            <li><a href="task"><i class="fa fa-check-square-o nav_icon"></i> <span>Task</span><div class="clearfix"></div></a></li>
+            <li id="menu-academico"><a href="#"><i class="fa fa-check-square-o nav_icon" aria-hidden="true"></i> <span>Task</span><span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+                <ul id="menu-academico-sub" >
+                    <li id="menu-academico-avaliacoes" ><a href="task?action=new">New</a></li>
+                    <li id="menu-academico-avaliacoes" ><a href="task">List</a></li>
+                </ul>
+            </li>
+            <li id="menu-academico"><a href="#"><i class="fa fa-list-ul nav_icon" aria-hidden="true"></i> <span>Team</span><span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+                <ul id="menu-academico-sub" >
+                    <li id="menu-academico-avaliacoes" ><a href="team?action=new">New</a></li>
+                    <li id="menu-academico-avaliacoes" ><a href="team">List</a></li>
+                </ul>
+            </li>
+            <li><a href="account"><i class="fa fa-file-text-o"></i> <span>Account</span><div class="clearfix"></div></a></li>
+
 
 
             <li id="menu-academico" ><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Inbox</span><div class="clearfix"></div></a></li>

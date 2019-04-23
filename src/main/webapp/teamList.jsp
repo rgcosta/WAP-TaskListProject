@@ -48,45 +48,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>Task</li>
+                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>Teams</li>
             </ol>
             <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2 id="forms-example" class="">Tasks</h2>
+                    <h2 id="forms-example" class="">Teams</h2>
                     <table class="table table-striped" id="tableData">
                         <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Due Date</th>
-                            <th>Priority</th>
-                            <th>Category</th>
-                            <th>User</th>
                             <th>Team</th>
-                            <th>Finish Date</th>
-                            <th>Rate</th>
+                            <th>Developer</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${allTasks}" var="t">
+                        <c:forEach items="${allTeams}" var="t">
                             <tr>
-                                <td>${t.title}</td>
-                                <td>${t.dueDate}</td>
-                                <td>${t.priority}</td>
-                                <td>${t.category}</td>
-                                <td>${t.userName}</td>
                                 <td>${t.teamName}</td>
-                                <td>${t.finishDate}</td>
-                                <td>${t.rate}</td>
+                                <td>${t.userName}</td>
                                 <td>
-                                    <a href="task?action=update&id=${t.id}&teamName=${t.teamName}" class="btn btn-warning">Edit</a>
-                                    <a href="task?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                    <a href="team?action=update&id=${t.id}&userName=${t.userName}" class="btn btn-warning">Update</a>
+                                    <a href="team?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
+
                 </div>
                 <!---->
             </div>
@@ -128,20 +117,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--COPY rights end here-->
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#tableData").dataTable({
+                "sPaginationType": "full_numbers",
+                "bJQueryUI": true
+            });
+        });
+    </script>
     <!--//content-inner-->
     <!--/sidebar-menu-->
     <c:import url="sidemenu.jsp" />
-<!--js -->
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<!-- /Bootstrap Core JavaScript -->
-<script>
-    $(document).ready(function() {
-        tasksController.init($('#taskPage'));
-    });
-</script>
-
+    <!--js -->
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- /Bootstrap Core JavaScript -->
 </body>
 </html>

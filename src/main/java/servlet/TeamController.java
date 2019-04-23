@@ -33,6 +33,7 @@ public class TeamController extends HttpServlet{
             else if(action.equals("update")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("team", TeamDataAccess.getTeamById(id));
+                request.setAttribute("userName", request.getParameter("userName"));
                 request.setAttribute("action", "update");
                 rd = request.getRequestDispatcher("/teamForm.jsp");
             }
@@ -59,11 +60,17 @@ public class TeamController extends HttpServlet{
 
         Team team = new Team();
         team.setTeamName(request.getParameter("teamName"));
-        team.setUserId(3);
         TeamDataAccess db = new TeamDataAccess();
-
         if(action.equals("new")){
-            db.save(team);
+            if (!(request.getParameter("developer").equals("")
+                    || request.getParameter("developer")==null)){
+                String[] dev=request.getParameterValues("developer");
+                for(String d: dev){
+                    team.setUserId(Integer.parseInt(d));
+                    db.save(team);
+                }
+            }
+
         }
         else if(action.equals("update")){
             team.setId(Integer.parseInt(request.getParameter("id")));

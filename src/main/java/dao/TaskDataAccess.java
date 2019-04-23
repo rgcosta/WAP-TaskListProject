@@ -15,20 +15,20 @@ import java.util.logging.Logger;
 public class TaskDataAccess {
     public void save(Task task){
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into task values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into task values(?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, task.getTitle());
             ps.setString(2, task.getDueDate());
             ps.setString(3, task.getPriority());
             ps.setString(4, task.getCategory());
             ps.setInt(5, task.getUserId());
-            ps.setInt(6, task.getTeamId());
+            ps.setString(6, task.getTeamName());
             ps.setString(7, task.getFinishDate());
             ps.setInt(8, task.getRateById());
             ps.setString(9, task.getRate());
             ps.setString(10, task.getRateDate());
-            ps.setString(11, task.getUserName());
-            ps.setString(12, task.getTeamName());
-            ps.setString(13, task.getRateByName());
+//            ps.setString(11, task.getUserName());
+//            ps.setString(12, task.getTeamName());
+//            ps.setString(13, task.getRateByName());
             ps.executeUpdate();
 
         }catch (ClassNotFoundException | SQLException ex) {
@@ -49,14 +49,13 @@ public class TaskDataAccess {
                 n.setPriority(rs.getString(4));
                 n.setCategory(rs.getString(5));
                 n.setUserId(rs.getInt(6));
-                n.setTeamId(rs.getInt(7));
+                n.setTeamName(rs.getString(7));
                 n.setFinishDate(rs.getString(8));
                 n.setRateById(rs.getInt(9));
                 n.setRate(rs.getString(10));
                 n.setRateDate(rs.getString(11));
-                n.setUserName(rs.getString(12));
-                n.setTeamName(rs.getString(13));
-                n.setRateByName(rs.getString(14));
+//                n.setUserName(rs.getString(12));
+//                n.setRateByName(rs.getString(13));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -80,14 +79,13 @@ public class TaskDataAccess {
                 n.setPriority(rs.getString(4));
                 n.setCategory(rs.getString(5));
                 n.setUserId(rs.getInt(6));
-                n.setTeamId(rs.getInt(7));
+                n.setTeamName(rs.getString(7));
                 n.setFinishDate(rs.getString(8));
                 n.setRateById(rs.getInt(9));
                 n.setRate(rs.getString(10));
                 n.setRateDate(rs.getString(11));
-                n.setUserName(rs.getString(12));
-                n.setTeamName(rs.getString(13));
-                n.setRateByName(rs.getString(14));
+//                n.setUserName(rs.getString(12));
+//                n.setRateByName(rs.getString(13));
                 ls.add(n);
 
                 ls.add(n);
@@ -107,7 +105,7 @@ public class TaskDataAccess {
                     + ",priority = ?"
                     + ",category = ?"
                     + ",user_Id = ?"
-                    + ",team_id = ?"
+                    + ",team_name = ?"
                     + ",finish_date = ?"
                     + ",rate_by_id = ?"
                     + ",rate = ?"
@@ -119,7 +117,7 @@ public class TaskDataAccess {
             ps.setString(3, task.getPriority());
             ps.setString(4, task.getCategory());
             ps.setInt(5, task.getUserId());
-            ps.setInt(6, task.getTeamId());
+            ps.setString(6, task.getTeamName());
             ps.setString(7, task.getFinishDate());
             ps.setInt(8, task.getRateById());
             ps.setString(9, task.getRate());

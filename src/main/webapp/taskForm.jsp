@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/jquery-2.1.4.min.js"></script>
 <%--    <script src="js/jquery-3.3.1.min.js"></script>--%>
     <script src="<c:url value="js/task.js"/>"></script>
+
     <!-- //jQuery -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -41,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="grid-form">
                 <div class="grid-form1" id="newTask">
                     <h2 id="forms-example" class="">New Task</h2>
-                    <div class="error"></div>
+                    <div class="error" style="color: red"></div>
                     <form action="task" method="post">
                         <div class="form-group">
                             <label>Title:</label>
@@ -79,7 +80,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="form-group">
                             <label>Team:</label>
-                            <select name="teamId" id="team">
+                            <select name="teamName" id="team">
+                                <c:forEach var="dev" items="${teamFilter}">
+                                    <option value="${dev.teamName}" ${dev.teamName == selectedTeam ? 'selected="selected"' : ''}>${dev.teamName}</option>
+                                </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">

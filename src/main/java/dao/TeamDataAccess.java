@@ -18,12 +18,13 @@ public class TeamDataAccess {
         List<Team> ls = new LinkedList<>();
 
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from user_team order by id desc").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select a.id,a.team_name,a.user_id,b.name as user_name  from user_team as a inner join users as b on a.user_id=b.id;").executeQuery();
             while(rs.next()){
                 Team n = new Team();
                 n.setId(rs.getInt(1));
                 n.setTeamName(rs.getString(2));
                 n.setUserId(rs.getInt(3));
+                n.setUserName(rs.getString(4));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -54,6 +55,23 @@ public class TeamDataAccess {
         return ls.get(0);
     }
 
+    public static List<Team> getDistrictTeam(){
+        List<Team> ls = new LinkedList<>();
+
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("select DISTINCT team_name from user_team").executeQuery();
+            while(rs.next()){
+                Team n = new Team();
+                n.setTeamName(rs.getString(1));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TaskDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        return ls;
+    }
     public void save(Team team){
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("insert into user_team values(?,?)");
@@ -79,13 +97,12 @@ public class TeamDataAccess {
 
     public void update(Team team){
         try {
-            String sql = "update user_team SET teamName = ?"
-                    + ",user_Id = ?"
+            String sql = "update user_team SET team_name = ?"
                     + " where id = ?";
             PreparedStatement ps= DBUtils.getPreparedStatement(sql);
             ps.setString(1, team.getTeamName());
-            ps.setInt(2, team.getUserId());
-            ps.setInt(3, team.getId());
+//            ps.setInt(2, team.getUserId());
+            ps.setInt(2, team.getId());
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TaskDataAccess.class.getName()).log(Level.SEVERE, null, ex);
