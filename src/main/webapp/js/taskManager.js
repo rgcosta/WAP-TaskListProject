@@ -66,14 +66,20 @@ $(function () {
         }
     });
 
-    //Clear form fields
-    // $("#clearTask").click(function (evt) {
-    //
-    //     evt.preventDefault();
-    //     $("#task").val("");
-    //     $("#requiredby").val("");
-    //     $("#category").val("Personal");
-    // });
+    // Clear form fields
+    $("#clearTask").click(function (evt) {
+
+        evt.preventDefault();
+        $("#title").val("");
+        $("#dueDate").val("");
+        $("input[name=priority]").attr('checked', false);
+        $("input[name=category]").attr('checked', false);
+        $("#developer").val("");
+        $("#team").val("");
+        $("#finishDate").val("");
+        $("input[name=rate]").attr('checked', false);
+
+    });
 
     //highlight the overdue task
     // $("#tblTasks .task-row").each(function () {

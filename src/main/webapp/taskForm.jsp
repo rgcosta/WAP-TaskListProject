@@ -93,7 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="form-group">
                             <label>Finish Date:</label>
-                            <input type="date" name="finishDate" value="${task.finishDate}" class="form-control"/>
+                            <input type="date" name="finishDate" id="finishDate" value="${task.finishDate}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label>Rate:</label>
@@ -112,6 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input type="hidden" value="${action}" name="action">
                             <input type="hidden" value="${task.id}" name="id">
                             <button type="submit" class="btn-primary btn" id="saveTask" >Save</button>
+                            <button class="btn-default btn" id="clearTask" >Clear</button>
                         </div>
 
                     </form>
