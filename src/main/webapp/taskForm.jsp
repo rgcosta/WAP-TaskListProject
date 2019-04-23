@@ -19,16 +19,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
+<%--    <script src="js/jquery-3.3.1.min.js"></script>--%>
+    <script src="<c:url value="js/task.js"/>"></script>
     <!-- //jQuery -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-    <!-- //lined-icons -->
-    <link rel="stylesheet" type="text/css" href="css/table-style.css" />
-    <link rel="stylesheet" type="text/css" href="css/basictable.css" />
-    <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
+
 </head>
 <body>
 <div class="page-container">
@@ -43,14 +42,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="grid-form1" id="newTask">
                     <h2 id="forms-example" class="">New Task</h2>
                     <div class="error"></div>
-                    <form action="/project/task" method="post">
+                    <form action="task" method="post">
                         <div class="form-group">
                             <label>Title:</label>
-                            <input type="text" name="title" value="${task.title}" class="form-control"/>
+                            <input type="text" name="title" id="title" value="${task.title}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label>Due Date:</label>
-                            <input type="date" name="dueDate" value="${task.dueDate}" class="form-control"/>
+                            <input type="date" name="dueDate" id="dueDate" value="${task.dueDate}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label>Priority:</label>
@@ -75,12 +74,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="form-group">
                             <label>Developer:</label>
-                            <select name="userId">
+                            <select name="userId" id="developer">
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Team:</label>
-                            <select name="teamId">
+                            <select name="teamId" id="team">
                             </select>
                         </div>
                         <div class="form-group">
@@ -103,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="form-group">
                             <input type="hidden" value="${action}" name="action">
                             <input type="hidden" value="${task.id}" name="id">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn-primary btn" id="saveTask" >Save</button>
                         </div>
 
                     </form>
