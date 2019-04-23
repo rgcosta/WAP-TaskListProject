@@ -34,12 +34,15 @@ public class TaskController extends HttpServlet {
                 request.setAttribute("task", task);
                 request.setAttribute("action", "new");
                 request.setAttribute("teamFilter", TeamDataAccess.getDistrictTeam());
+                request.setAttribute("allUsers", TeamDataAccess.getAllUsers());
                 rd = request.getRequestDispatcher("/taskForm.jsp");
             }else if(action.equals("update")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("task", TaskDataAccess.getTaskById(id));
                 request.setAttribute("teamFilter", TeamDataAccess.getDistrictTeam());
+                request.setAttribute("allUsers", TeamDataAccess.getAllUsers());
                 request.setAttribute("selectedTeam", request.getParameter("teamName"));
+                request.setAttribute("selectedUser", request.getParameter("userId"));
                 request.setAttribute("action", "update");
                 rd = request.getRequestDispatcher("/taskForm.jsp");
             }else if(action.equals("delete")){

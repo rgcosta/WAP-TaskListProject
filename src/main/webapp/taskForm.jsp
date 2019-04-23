@@ -76,11 +76,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="form-group">
                             <label>Developer:</label>
                             <select name="userId" id="developer">
+                                <option value="">Select User</option>
+                                <c:forEach var="user" items="${allUsers}">
+                                    <option value="${user.id}" ${user.id == selectedUser ? 'selected="selected"' : ''}>${user.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Team:</label>
                             <select name="teamName" id="team">
+                                <option value="">Select Team</option>
                                 <c:forEach var="dev" items="${teamFilter}">
                                     <option value="${dev.teamName}" ${dev.teamName == selectedTeam ? 'selected="selected"' : ''}>${dev.teamName}</option>
                                 </c:forEach>

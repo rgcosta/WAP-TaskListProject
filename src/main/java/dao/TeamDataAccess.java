@@ -113,7 +113,7 @@ public class TeamDataAccess {
         List<User> ls = new LinkedList<>();
 
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from users order by id desc").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select id,name from users order by id desc").executeQuery();
             while(rs.next()){
                 User n = new User();
                 n.setId(rs.getInt(1));
