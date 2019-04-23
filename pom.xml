@@ -26,13 +26,18 @@
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/taglibs/standard -->
-
-
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
-      <version>1.1.2</version>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!--sql server-->
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>7.2.2.jre11</version>
     </dependency>
   </dependencies>
 

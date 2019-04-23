@@ -21,15 +21,18 @@ public class DBUtils {
         String user = "DB_A46D82_wapproject_admin";
         String pass = "Wappassword123";
 
-        
         Connection con = DriverManager.getConnection(url, user, pass);
         ps = con.prepareStatement(sql);
-        
         return ps;
     }
     
     //Check connections.
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-       // getPreparedStatement("select * from user");
+
+
+        PreparedStatement ps = DBUtils.getPreparedStatement("insert into temp values(?)");
+        ps.setString(1, "t1");
+        ps.executeUpdate();
+
     }
 }
