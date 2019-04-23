@@ -17,28 +17,28 @@ $(function () {
             submitFlag = false;
         }
 
-        if ($("input[name=priority]:checked").val() === "") {
+        if ($("input[name=priority]:checked").val() === undefined) {
             $(".error").append("Select one category<br>");
             submitFlag = false;
         }
 
-        if ($("input[name=category]:checked").val() === "") {
+        if ($("input[name=category]:checked").val() === undefined) {
             $(".error").append("Select one priority<br>");
             submitFlag = false;
         }
 
-        if ($("#developer").val() === "") {
+        if ($("#developer").val() === undefined) {
             $(".error").append("You must select one developer from the list<br>");
             submitFlag = false;
         }
 
-        if ($("#team").val() === "") {
+        if ($("#team").val() === undefined) {
             $(".error").append("You must select one team from the list<br>");
             submitFlag = false;
         }
 
         if (submitFlag)
-            this.submit();
+            $("#taskForm").submit();
     });
 
     //Clear form fields

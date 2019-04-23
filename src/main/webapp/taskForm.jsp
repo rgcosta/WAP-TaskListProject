@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="grid-form1" id="newTask">
                     <h2 id="forms-example" class="">New Task</h2>
                     <div class="error" style="color: red"></div>
-                    <form action="task" method="post">
+                    <form action="task" method="post" id="taskForm">
                         <div class="form-group">
                             <label>Title:</label>
                             <input type="text" name="title" id="title" value="${task.title}" class="form-control"/>
@@ -153,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--/sidebar-menu-->
     <c:import url="sidemenu.jsp" />
 <!--js -->
-<script src="js/jquery.nicescroll.js"></script>
+<%--<script src="js/jquery.nicescroll.js"></script>--%>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
