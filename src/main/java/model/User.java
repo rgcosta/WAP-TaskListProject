@@ -21,12 +21,6 @@ public class User {
         this.latitude = latitude;
         this.role = role;
     }*/
-    private int id;
-    private String name;
-
-    public int getId() {
-        return id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -82,5 +76,13 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setId(int id) {
+        this.id=id;
     }
 }
