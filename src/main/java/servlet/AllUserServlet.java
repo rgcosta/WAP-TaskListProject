@@ -1,4 +1,4 @@
-package com.mum.task.Controllers;
+package servlet;
 
 import dao.UserDataAccess;
 import model.User;

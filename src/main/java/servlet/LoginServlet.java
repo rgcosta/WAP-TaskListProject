@@ -1,4 +1,4 @@
-package com.mum.task.Controllers;
+package servlet;
 
 import dao.UserDataAccess;
 import model.User;
@@ -31,6 +31,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 if(user.getRole().toLowerCase().equals("manager")){
                     UserGlobal.userId=user.getId();
                     UserGlobal.userName=user.getName();
+                    UserGlobal.userRole=user.getRole();
                 request.setAttribute("allUsers", UserDataAccess.getAllUsers());
                 rd=request.getRequestDispatcher("/User.jsp");}
 
