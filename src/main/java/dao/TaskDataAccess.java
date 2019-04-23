@@ -66,6 +66,38 @@ public class TaskDataAccess {
         return ls;
     }
 
+    public static List<Task> getAllTaskByUserId(int userId){
+        List<Task> ls = new LinkedList<>();
+
+        String criteria=" where user_id=" + userId +" and finish_date is not null";
+
+        try {
+            ResultSet rs = DBUtils.getPreparedStatement("select * from task " + criteria).executeQuery();
+            while(rs.next()){
+                Task n = new Task();
+                n.setId(rs.getInt(1));
+                n.setTitle(rs.getString(2));
+                n.setDueDate(rs.getString(3));
+                n.setPriority(rs.getString(4));
+                n.setCategory(rs.getString(5));
+                n.setUserId(rs.getInt(6));
+                n.setTeamName(rs.getString(7));
+                n.setFinishDate(rs.getString(8));
+                n.setRateById(rs.getInt(9));
+                n.setRate(rs.getString(10));
+                n.setRateDate(rs.getString(11));
+//                n.setUserName(rs.getString(12));
+//                n.setRateByName(rs.getString(13));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TaskDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+        return ls;
+    }
+
     public static Task getTaskById(int id){
         List<Task> ls = new LinkedList<>();
         String sql = "select * from task where id = " + id + " order by id desc";
