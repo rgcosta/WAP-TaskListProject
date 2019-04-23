@@ -80,6 +80,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <td>${t.finishDate}</td>
                                 <td>${t.rate}</td>
                                 <td>
+                                    <a href="task?action=updateFinishDate&id=${t.id}" class="btn btn-success">
+                                        <span class="glyphicon glyphicon-ok"></span> Done
+                                    </a>
+
                                     <a href="task?action=update&id=${t.id}&teamName=${t.teamName}" class="btn btn-warning">Edit</a>
                                     <a href="task?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 </td>

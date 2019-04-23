@@ -47,6 +47,11 @@ public class TaskController extends HttpServlet {
                 db.delete(id);
                 request.setAttribute("allTasks", TaskDataAccess.getAll());
                 rd = request.getRequestDispatcher("/taskList.jsp");
+            }else if(action.equals("updateFinishDate")){
+                int id = Integer.parseInt(request.getParameter("id"));
+                db.updateFinishDate(id);
+                request.setAttribute("allTasks", TaskDataAccess.getAll());
+                rd = request.getRequestDispatcher("/taskList.jsp");
             }
         }
         else{

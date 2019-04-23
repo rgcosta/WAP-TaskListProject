@@ -140,4 +140,15 @@ public class TaskDataAccess {
         }
     }
 
+    public void updateFinishDate(int id){
+        try {
+            String sql = "update task SET finish_date = CONVERT(char(10), GetDate(),126)" + " where id = ?";
+            PreparedStatement ps= DBUtils.getPreparedStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TaskDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
