@@ -1,3 +1,4 @@
+<%@ page import="model.UserGlobal" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -95,6 +96,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <label>Finish Date:</label>
                             <input type="date" name="finishDate" id="finishDate" value="${task.finishDate}" class="form-control"/>
                         </div>
+
+                        <% if (!UserGlobal.userRole.equals("DEVELOPER")){%>
                         <div class="form-group">
                             <label>Rate:</label>
                             <label class="radio-inline">
@@ -107,6 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <label><input type="radio" name="rate" value="BAD" <c:if test="${task.rate=='BAD'}">checked</c:if>>Bad</label>
                             </label>
                         </div>
+                        <%}%>
+
 
                         <div class="form-group">
                             <input type="hidden" value="${action}" name="action">
