@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${u.address}</td>
                             <td>${u.email}</td>
                             <td>
-                                <a href="AllUserServlet?action=update&id=${u.id}" class="btn btn-warning">Edit</a>
+                                <a href="/AllUserServlet?action=update&id=${u.id}" class="btn btn-warning">Edit</a>
                                 <a href="AllUserServlet?action=delete&id=${u.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 <a href="AllUserServlet?action=view&id=${u.id}" class="btn btn-warning">View</a>
                             </td>

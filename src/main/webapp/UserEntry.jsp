@@ -51,17 +51,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="email" id="email"  name="email" value="${userValue.email}" class="field-style field-full align-none" placeholder="E-mail" />
             </li>
             <li>
-                <input type="password" id="password" name="password" class="field-style field-full align-none" placeholder="Password" />
+                <input type="password" id="password" name="password" value="${userValue.password}" class="field-style field-full align-none" placeholder="Password" />
             </li>
             <li>
-                <input type="password" id="repassword" name="repassword" class="field-style field-full align-none" placeholder="Re-enter Password" />
+                <input type="password" id="repassword" name="repassword" value="${userValue.password}" class="field-style field-full align-none" placeholder="Re-enter Password" />
             </li>
             <li>
                 <input type="text" name="address" id="address" value="${userValue.address}" class="field-style field-full align-none" placeholder="Address" />
             </li>
             <li>
-                <input type="text" id="long" name="long" class="field-style field-split align-left" required placeholder="Longitude" />
-                <input type="text" id="lat" name="lat" class="field-style field-split align-right" required placeholder="Latitude" />
+                <input type="text" id="long" name="long" value="${userValue.longitude}" class="field-style field-split align-left"  placeholder="Longitude" />
+                <input type="text" id="lat" name="lat" value="${userValue.latitude}" class="field-style field-split align-right"  placeholder="Latitude" />
             </li>
             <li>
                 <select name="role" id="roleSelect">
@@ -86,9 +86,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <c:import url="sidemenu.jsp" />
 
 </body>
-<script>
-    $(function () {
-        $('.roleSelect select').val(${userValue.role});
-    })
-</script>
+
 </html>
