@@ -59,8 +59,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="text" name="address" id="address" value="${userValue.address}" class="field-style field-full align-none" placeholder="Address" />
             </li>
             <li>
-                <input type="number" id="long" name="long" class="field-style field-split align-left" placeholder="Longitude" />
-                <input type="number" id="lat" name="lat" class="field-style field-split align-right" placeholder="Latitude" />
+                <input type="text" id="long" name="long" class="field-style field-split align-left" required placeholder="Longitude" />
+                <input type="text" id="lat" name="lat" class="field-style field-split align-right" required placeholder="Latitude" />
             </li>
             <li>
                 <select name="role" id="roleSelect">
