@@ -32,33 +32,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/user.js"></script>
 </head>
 <body>
 
-<div id="enterUserForm">
-    <form action="AllUserServlet" method="post" class="form-style-9">
+
+
+
+    <form id="userForm" action="AllUserServlet" method="post" class="form-style-9">
+        <div class="error" style="color: red;"></div>
         <ul>
             <li>
-                <input type="text" name="name" value="${userValue.name}" class="field-style field-full align-none" placeholder="Name" />
+                <input type="text" id="name"  name="name" value="${userValue.name}" class="field-style field-full align-none" placeholder="Name" />
             </li>
             <li>
-                <input type="text" name="email" value="${userValue.email}" class="field-style field-full align-none" placeholder="E-mail" />
+                <input type="email" id="email"  name="email" value="${userValue.email}" class="field-style field-full align-none" placeholder="E-mail" />
             </li>
             <li>
-                <input type="password" name="password" class="field-style field-full align-none" placeholder="Password" />
+                <input type="password" id="password" name="password" class="field-style field-full align-none" placeholder="Password" />
             </li>
             <li>
-                <input type="password" name="repassword" class="field-style field-full align-none" placeholder="Re-enter Password" />
+                <input type="password" id="repassword" name="repassword" class="field-style field-full align-none" placeholder="Re-enter Password" />
             </li>
             <li>
-                <input type="text" name="address" value="${userValue.address}" class="field-style field-full align-none" placeholder="Address" />
+                <input type="text" name="address" id="address" value="${userValue.address}" class="field-style field-full align-none" placeholder="Address" />
             </li>
             <li>
-                <input type="text" name="long" class="field-style field-split align-left" placeholder="Longitude" />
-                <input type="text" name="lat" class="field-style field-split align-right" placeholder="Latitude" />
+                <input type="number" id="long" name="long" class="field-style field-split align-left" placeholder="Longitude" />
+                <input type="number" id="lat" name="lat" class="field-style field-split align-right" placeholder="Latitude" />
             </li>
             <li>
-                <select name="role">
+                <select name="role" id="roleSelect">
                     <option value="" selected="selected">Select Role</option>
                     <option value="ADMIN">Admin</option>
                     <option value="MANAGER">Project Manager</option>
@@ -72,12 +77,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </li>
 
             <li>
-                <input type="submit" value="Save User" />
+                <input type="submit" value="Save User" id="saveUser" />
             </li>
         </ul>
     </form>
 
     <c:import url="sidemenu.jsp" />
-</div>
+
 </body>
 </html>
