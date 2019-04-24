@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <c:forEach items="${allUsers}" var="u">
                         <tr>
                             <td>${u.id}</td>
-                            <td>${u.name}</td>`
+                            <td>${u.name}</td>
                             <td>${u.address}</td>
                             <td>${u.email}</td>
                             <td>
