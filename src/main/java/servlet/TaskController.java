@@ -3,6 +3,8 @@ package servlet;
 import dao.TaskDataAccess;
 import dao.TeamDataAccess;
 import model.Task;
+import model.UserGlobal;
+import model.enumCommon;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,17 +50,17 @@ public class TaskController extends HttpServlet {
             }else if(action.equals("delete")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 db.delete(id);
-                request.setAttribute("allTasks", TaskDataAccess.getAll());
+                request.setAttribute("allTasks", getAllTaskByUsers());
                 rd = request.getRequestDispatcher("/taskList.jsp");
             }else if(action.equals("updateFinishDate")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 db.updateFinishDate(id);
-                request.setAttribute("allTasks", TaskDataAccess.getAll());
+                request.setAttribute("allTasks", getAllTaskByUsers());
                 rd = request.getRequestDispatcher("/taskList.jsp");
             }
         }
         else{
-            request.setAttribute("allTasks", TaskDataAccess.getAll());
+            request.setAttribute("allTasks", getAllTaskByUsers());
             rd = request.getRequestDispatcher("/taskList.jsp");
         }
 
@@ -76,11 +78,21 @@ public class TaskController extends HttpServlet {
         task.setDueDate(request.getParameter("dueDate"));
         task.setPriority(request.getParameter("priority"));
         task.setCategory(request.getParameter("category"));
-        task.setUserId(2);
+
+        //System.out.println("userId:" + request.getParameter("userId"));
+        if (request.getParameter("userId").equals("") || request.getParameter("userId")==null){
+            System.out.println("userId: 0");
+            task.setUserId(-1);
+        }else{
+            System.out.println("userId: " + request.getParameter("userId"));
+            task.setUserId(Integer.parseInt(request.getParameter("userId")));
+        }
+
+        //task.setUserId(2);
         task.setTeamName(request.getParameter("teamName"));
         task.setFinishDate(request.getParameter("finishDate"));
-        task.setRateById(2);
         task.setRate(request.getParameter("rate"));
+        task.setRateById(UserGlobal.userId);
         task.setRateDate(request.getParameter("rateDate"));
 //        task.setUserName(request.getParameter("userId"));
 //        task.setRateByName(request.getParameter("2"));
@@ -96,9 +108,18 @@ public class TaskController extends HttpServlet {
             db.update(task);
         }
 
-        request.setAttribute("allTasks", TaskDataAccess.getAll());
+        request.setAttribute("allTasks", getAllTaskByUsers());
         rd = request.getRequestDispatcher("/taskList.jsp");
         rd.forward(request, response);
     }
 
+    public List<Task> getAllTaskByUsers(){
+        if (UserGlobal.userRole.equals("DEVELOPER")){
+            System.out.println("log as developer..." + UserGlobal.userId + "," + UserGlobal.userName);
+            return TaskDataAccess.getAllTaskByUserId(UserGlobal.userId);
+        }
+
+        System.out.println("log as manager / admin...");
+        return TaskDataAccess.getAll();
+    }
 }

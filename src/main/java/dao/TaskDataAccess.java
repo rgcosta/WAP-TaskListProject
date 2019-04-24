@@ -40,7 +40,7 @@ public class TaskDataAccess {
         List<Task> ls = new LinkedList<>();
 
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select a.*,b.name from task as a inner join users as b on a.user_id=b.id").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select a.*,b.name from task as a left join users as b on a.user_id=b.id").executeQuery();
             while(rs.next()){
                 Task n = new Task();
                 n.setId(rs.getInt(1));
@@ -69,10 +69,10 @@ public class TaskDataAccess {
     public static List<Task> getAllTaskByUserId(int userId){
         List<Task> ls = new LinkedList<>();
 
-        String criteria=" where a.user_id=" + userId +" and a.finish_date is not null";
+        String criteria=" where developer_id=" + userId +" and finish_date=''";
 
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select a.*,b.name from task as a inner join users as b on a.user_id=b.id " + criteria).executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from view_getAllUserTeam " + criteria).executeQuery();
             while(rs.next()){
                 Task n = new Task();
                 n.setId(rs.getInt(1));
@@ -86,8 +86,8 @@ public class TaskDataAccess {
                 n.setRateById(rs.getInt(9));
                 n.setRate(rs.getString(10));
                 n.setRateDate(rs.getString(11));
-//                n.setUserName(rs.getString(12));
-//                n.setRateByName(rs.getString(13));
+                n.setUserName(rs.getString(12));
+                //n.setUserId(rs.getInt(13));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -100,7 +100,7 @@ public class TaskDataAccess {
 
     public static Task getTaskById(int id){
         List<Task> ls = new LinkedList<>();
-        String sql = "select a.*,b.name from task as a inner join users as b on a.user_id=b.id where a.id = " + id ;
+        String sql = "select a.*,b.name from task as a left join users as b on a.user_id=b.id where a.id = " + id ;
         try {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next()){

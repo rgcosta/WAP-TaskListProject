@@ -36,8 +36,10 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 UserGlobal.userName=user.getName();
                 UserGlobal.userRole=user.getRole();
 
-                    request.setAttribute("allTasks", TaskDataAccess.getAll());
-                    rd=request.getRequestDispatcher("/taskList.jsp");
+                TaskController controller=new TaskController();
+                    request.setAttribute("allTasks", controller.getAllTaskByUsers());
+//                rd=request.getRequestDispatcher("/taskList.jsp");
+                rd=request.getRequestDispatcher("/taskList.jsp");
             }
             else {
                 request.setAttribute("message","No User Found");

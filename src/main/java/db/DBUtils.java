@@ -30,9 +30,9 @@ public class DBUtils {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
 
-        PreparedStatement ps = DBUtils.getPreparedStatement("insert into temp values(?)");
-        ps.setString(1, "t1");
-        ps.executeUpdate();
+//        PreparedStatement ps = DBUtils.getPreparedStatement("insert into temp values(?)");
+//        ps.setString(1, "t1");
+//        ps.executeUpdate();
 
     }
 }
