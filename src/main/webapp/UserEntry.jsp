@@ -34,6 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/user.js"></script>
+
 </head>
 <body>
 
@@ -59,8 +60,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="text" name="address" id="address" value="${userValue.address}" class="field-style field-full align-none" placeholder="Address" />
             </li>
             <li>
-                <input type="number" id="long" name="long" class="field-style field-split align-left" placeholder="Longitude" />
-                <input type="number" id="lat" name="lat" class="field-style field-split align-right" placeholder="Latitude" />
+                <input type="text" id="long" name="long" class="field-style field-split align-left" required placeholder="Longitude" />
+                <input type="text" id="lat" name="lat" class="field-style field-split align-right" required placeholder="Latitude" />
             </li>
             <li>
                 <select name="role" id="roleSelect">
@@ -85,4 +86,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <c:import url="sidemenu.jsp" />
 
 </body>
+<script>
+    $(function () {
+        $('.roleSelect select').val(${userValue.role});
+    })
+</script>
 </html>

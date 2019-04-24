@@ -32,6 +32,8 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 UserGlobal.userId=user.getId();
                 UserGlobal.userName=user.getName();
                 UserGlobal.userRole=user.getRole();
+                UserGlobal.userAddress=user.getAddress();
+                UserGlobal.userEmail=user.getEmail();
 
                 TaskController controller=new TaskController();
                     request.setAttribute("allTasks", controller.getAllTaskByUsers());
