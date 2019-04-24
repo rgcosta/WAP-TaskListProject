@@ -36,7 +36,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 UserGlobal.userName=user.getName();
                 UserGlobal.userRole=user.getRole();
                 UserGlobal.userAddress=user.getAddress();
-                UserGlobal.userEmail=user.getAddress();
+                UserGlobal.userEmail=user.getEmail();
 
                     request.setAttribute("allTasks", TaskDataAccess.getAll());
                     rd=request.getRequestDispatcher("/taskList.jsp");
