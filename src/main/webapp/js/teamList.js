@@ -11,13 +11,33 @@ $(function () {
             submitFlag = false;
         }
 
-        if ($("input[name=developer]:checked").val() === undefined) {
-            console.log("inside2");
-            $("#error").append("You must select at least one team member.<br>");
-            submitFlag = false;
+        console.log(getUrlParameter("action"));
+        if (getUrlParameter("action") !== "update") {
+            if ($("input[name=developer]:checked").val() === undefined) {
+                $("#error").append("You must select at least one team member.<br>");
+                submitFlag = false;
+            }
         }
 
         if (submitFlag)
             $("#teamForm").submit();
     });
+
+
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    }
+
+
 });
