@@ -29,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-
+    <script src="<c:url value="js/teamList.js"/>"></script>
 </head>
 <body>
 <div class="page-container">
@@ -43,11 +43,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="grid-form">
                 <div class="grid-form1" id="newTask">
                     <h2 id="forms-example" class="">New Team</h2>
-                    <div class="error" style="color: red"></div>
-                    <form action="team" method="post">
+                    <div id="error" style="color: red"></div>
+                    <form action="team" method="post" id="teamForm">
                         <div class="form-group">
-                            <label>Team Name:</label>
-                            <input type="text" name="teamName" value="${team.teamName}" class="form-control"/>
+                            <label for="teamName">Team Name:</label>
+                            <input type="text" name="teamName" id="teamName" value="${team.teamName}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label>Developer: <h1>${userName}</h1></label><br>
@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="form-group">
                             <input type="hidden" value="${action}" name="action">
                             <input type="hidden" value="${team.id}" name="id">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" id="saveTeam" class="btn btn-primary">Save</button>
                         </div>
 
                     </form>

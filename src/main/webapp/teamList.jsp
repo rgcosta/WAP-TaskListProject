@@ -38,7 +38,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="media/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
     <script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/jquery.dataTables.min.js" type="text/javascript"></script>
-
     <%-- end:  jquery datatable--%>
 </head>
 <body>
