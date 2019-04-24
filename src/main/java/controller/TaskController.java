@@ -1,10 +1,9 @@
-package servlet;
+package controller;
 
 import dao.TaskDataAccess;
 import dao.TeamDataAccess;
 import model.Task;
 import model.UserGlobal;
-import model.enumCommon;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @WebServlet(name = "Task",urlPatterns = "/task")

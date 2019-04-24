@@ -30,7 +30,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="css/table-style.css" />
     <link rel="stylesheet" type="text/css" href="css/basictable.css" />
     <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
-    <script type="text/javascript" src="js/task.js"></script>
     <%-- start: jquery datatable--%>
     <link href="media/dataTables/demo_page.css" rel="stylesheet" type="text/css" />
     <link href="media/dataTables/demo_table.css" rel="stylesheet" type="text/css" />
@@ -39,7 +38,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="media/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
     <script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/jquery.dataTables.min.js" type="text/javascript"></script>
-
     <%-- end:  jquery datatable--%>
 </head>
 <body>
