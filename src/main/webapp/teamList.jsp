@@ -46,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>Teams</li>
+                <li class="breadcrumb-item"><a href="task">Home</a><i class="fa fa-angle-right"></i>Teams</li>
             </ol>
             <!--grid-->
             <div class="grid-form">
@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <td>${t.teamName}</td>
                                 <td>${t.userName}</td>
                                 <td>
-                                    <a href="team?action=update&id=${t.id}&userName=${t.userName}" class="btn btn-warning">Update</a>
+                                    <a href="team?action=update&id=${t.id}&userName=${t.userName}" class="btn btn-warning">Edit</a>
                                     <a href="team?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 </td>
                             </tr>
