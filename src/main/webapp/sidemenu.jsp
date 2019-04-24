@@ -55,6 +55,9 @@
                 }
             %>
 
+            <li style="height: 50px"></li>
+            <li><a href="Login.jsp"><i class="fa fa-file-text-o"></i> <span>Logout</span><div class="clearfix"></div></a></li>
+
 
 
 

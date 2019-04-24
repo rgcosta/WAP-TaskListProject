@@ -26,16 +26,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/morris.css" type="text/css"/>
     <!-- Graph CSS -->
     <link href="css/font-awesome.css" rel="stylesheet">
-    <script src="js/userjs.js"></script>
+    <script src="js/user.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <!-- jQuery -->
 
     <!-- //jQuery -->
 
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
+
+    <%-- start: jquery datatable--%>
+    <link href="media/dataTables/demo_page.css" rel="stylesheet" type="text/css" />
+    <link href="media/dataTables/demo_table.css" rel="stylesheet" type="text/css" />
+    <link href="media/dataTables/demo_table_jui.css" rel="stylesheet" type="text/css" />
+    <link href="media/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="media/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/jquery.dataTables.min.js" type="text/javascript"></script>
 
 
 </head>
@@ -62,11 +74,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!-- form div ends here-->
 
-            <!-- table starts here-->
 
-            <div>
-                <table>
-                    <caption>Users</caption>
+            <!-- table starts here-->
+            <div class="grid-form">
+                <div class="grid-form1">
+            <h2 id="forms-example" class="">Users</h2>
+
+            <%--<table id="myTable">--%>
+            <table class="table table-striped" id="tableData">
+
                     <thead>
                     <tr>
                         <th scope="col">id</th>
@@ -84,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>${u.address}</td>
                             <td>${u.email}</td>
                             <td>
-                                <a href="AllUserServlet?action=update&id=${u.id}" class="btn btn-warning">Update</a>
+                                <a href="AllUserServlet?action=update&id=${u.id}" class="btn btn-warning">Edit</a>
                                 <a href="AllUserServlet?action=delete&id=${u.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 <a href="AllUserServlet?action=view&id=${u.id}" class="btn btn-warning">View</a>
                             </td>
@@ -93,7 +109,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </tbody>
                 </table>
+                </div>
             </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#tableData").dataTable({
+                        "sPaginationType": "full_numbers",
+                        "bJQueryUI": true
+                    });
+                });
+            </script>
+
 
             <!-- script-for sticky-nav -->
             <script>
@@ -129,11 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.min.js"></script>
 <!-- /Bootstrap Core JavaScript -->
 
-    <script>
-        $(document).ready(function() {
-            tasksController.init($('#taskPage'));
-        });
-    </script>
+
 
 </body>
 </html>

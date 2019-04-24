@@ -20,11 +20,11 @@
 <div class="main">
     <p class="sign" align="center">Sign in</p>
     <form class="form1" action="login" method="post">
-        <input class="un " name="email" type="text" align="center" placeholder="Email">
+        <input class="un " name="email" type="email" align="center" placeholder="Email">
         <input class="pass" name="password" type="password" align="center" placeholder="Password">
         <input type="Submit" value="Login" class="submit">
 
-        <p class="forgot" align="center"><a href="#">Forgot Password? </a></p>
+
 
     </form>
 </div>
