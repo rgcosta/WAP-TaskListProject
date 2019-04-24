@@ -35,13 +35,6 @@ $(function () {
                 submitFlag = false;
             }
         } else if ($("input[name=category]:checked").val() === "TEAM") {
-            if ($("#developer").val() === "") {
-                console.log(1);
-                $(".error").append("You must select one developer from the list<br>");
-                submitFlag = false;
-            }
-
-            console.log(2);
             if ($("#team").val() === "") {
                 console.log(3);
                 $(".error").append("You must select one team from the list<br>");
