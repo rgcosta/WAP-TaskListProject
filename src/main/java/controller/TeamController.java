@@ -1,4 +1,4 @@
-package servlet;
+package controller;
 
 import dao.TeamDataAccess;
 import model.Team;

@@ -1,4 +1,4 @@
-package servlet;
+package controller;
 
 import dao.UserDataAccess;
 import model.User;
