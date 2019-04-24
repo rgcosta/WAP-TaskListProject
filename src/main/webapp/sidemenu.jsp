@@ -18,7 +18,7 @@
     <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
     <div class="menu">
         <ul id="menu" >
-            <li><a href="account"><i class="fa fa-file-text-o"></i> <span>Account</span><div class="clearfix"></div></a></li>
+            <li><a href="account.jsp"><i class="fa fa-file-text-o"></i> <span>Account</span><div class="clearfix"></div></a></li>
 
 
 
