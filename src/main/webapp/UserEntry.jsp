@@ -34,6 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/user.js"></script>
+
 </head>
 <body>
 
@@ -85,4 +86,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <c:import url="sidemenu.jsp" />
 
 </body>
+<script>
+    $(function () {
+        $('.roleSelect select').val(${userValue.role});
+    })
+</script>
 </html>

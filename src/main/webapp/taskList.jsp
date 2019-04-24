@@ -30,7 +30,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="css/table-style.css" />
     <link rel="stylesheet" type="text/css" href="css/basictable.css" />
     <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
-    <script type="text/javascript" src="js/task.js"></script>
     <%-- start: jquery datatable--%>
     <link href="media/dataTables/demo_page.css" rel="stylesheet" type="text/css" />
     <link href="media/dataTables/demo_table.css" rel="stylesheet" type="text/css" />
@@ -39,8 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="media/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="all" />
     <script src="scripts/jquery.js" type="text/javascript"></script>
     <script src="scripts/jquery.dataTables.min.js" type="text/javascript"></script>
-
     <%-- end:  jquery datatable--%>
+    <script src="<c:url value="js/taskListManager.js"/>"></script>
 </head>
 <body>
 <div class="page-container">
@@ -48,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>Task</li>
+                <li class="breadcrumb-item"><a href="task">Home</a><i class="fa fa-angle-right"></i>Task</li>
             </ol>
             <!--grid-->
             <div class="grid-form">
@@ -65,20 +64,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th>Team</th>
                             <th>Finish Date</th>
                             <th>Rate</th>
+                            <th>Overdue</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${allTasks}" var="t">
-                            <tr>
+                            <tr class="task-row">
                                 <td>${t.title}</td>
-                                <td>${t.dueDate}</td>
+                                <td class="duedate">${t.dueDate}</td>
                                 <td>${t.priority}</td>
                                 <td>${t.category}</td>
                                 <td>${t.userName}</td>
                                 <td>${t.teamName}</td>
                                 <td>${t.finishDate}</td>
                                 <td>${t.rate}</td>
+                                <td class="overdue"></td>
                                 <td>
                                     <a href="task?action=updateFinishDate&id=${t.id}" class="btn btn-success">
                                         <span class="glyphicon glyphicon-ok"></span> Done

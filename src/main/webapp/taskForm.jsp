@@ -1,3 +1,4 @@
+<%@ page import="model.UserGlobal" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -20,7 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
 <%--    <script src="js/jquery-3.3.1.min.js"></script>--%>
-    <script src="<c:url value="js/task.js"/>"></script>
+    <script src="<c:url value="js/taskManager.js"/>"></script>
 
     <!-- //jQuery -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
@@ -36,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>Task</li>
+                <li class="breadcrumb-item"><a href="task">Home</a><i class="fa fa-angle-right"></i>Task</li>
             </ol>
             <!--grid-->
             <div class="grid-form">
@@ -45,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="error" style="color: red"></div>
                     <form action="task" method="post" id="taskForm">
                         <div class="form-group">
-                            <label>Title:</label>
+                            <label>Description:</label>
                             <input type="text" name="title" id="title" value="${task.title}" class="form-control"/>
                         </div>
                         <div class="form-group">
@@ -83,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Team:</label>
+                            <label id="teamLabel">Team:</label>
                             <select name="teamName" id="team">
                                 <option value="">Select Team</option>
                                 <c:forEach var="dev" items="${teamFilter}">
@@ -93,8 +94,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="form-group">
                             <label>Finish Date:</label>
-                            <input type="date" name="finishDate" value="${task.finishDate}" class="form-control"/>
+                            <input type="date" name="finishDate" id="finishDate" value="${task.finishDate}" class="form-control"/>
                         </div>
+
+                        <% if (!UserGlobal.userRole.equals("DEVELOPER")){%>
                         <div class="form-group">
                             <label>Rate:</label>
                             <label class="radio-inline">
@@ -107,11 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <label><input type="radio" name="rate" value="BAD" <c:if test="${task.rate=='BAD'}">checked</c:if>>Bad</label>
                             </label>
                         </div>
+                        <%}%>
+
 
                         <div class="form-group">
                             <input type="hidden" value="${action}" name="action">
                             <input type="hidden" value="${task.id}" name="id">
                             <button type="submit" class="btn-primary btn" id="saveTask" >Save</button>
+                            <button class="btn-default btn" id="clearTask" >Clear</button>
                         </div>
 
                     </form>

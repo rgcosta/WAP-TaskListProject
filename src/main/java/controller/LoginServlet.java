@@ -1,13 +1,10 @@
-package servlet;
+package controller;
 
-import dao.TaskDataAccess;
 import dao.UserDataAccess;
 import model.User;
 import model.UserGlobal;
 
 import javax.servlet.RequestDispatcher;
-
-import static model.UserGlobal.userRole;
 
 @javax.servlet.annotation.WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
@@ -38,8 +35,10 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 UserGlobal.userAddress=user.getAddress();
                 UserGlobal.userEmail=user.getAddress();
 
-                    request.setAttribute("allTasks", TaskDataAccess.getAll());
-                    rd=request.getRequestDispatcher("/taskList.jsp");
+                TaskController controller=new TaskController();
+                    request.setAttribute("allTasks", controller.getAllTaskByUsers());
+//                rd=request.getRequestDispatcher("/taskList.jsp");
+                rd=request.getRequestDispatcher("/taskList.jsp");
             }
             else {
                 request.setAttribute("message","No User Found");

@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!--heder end here-->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.jsp">Home</a><i class="fa fa-angle-right"></i>User</li>
+                <li class="breadcrumb-item"><a href="task">Home</a><i class="fa fa-angle-right"></i>User</li>
             </ol>
 
 
@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <c:forEach items="${allUsers}" var="u">
                         <tr>
                             <td>${u.id}</td>
-                            <td>${u.name}</td>`
+                            <td>${u.name}</td>
                             <td>${u.address}</td>
                             <td>${u.email}</td>
                             <td>
