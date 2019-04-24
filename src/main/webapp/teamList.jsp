@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <td>${t.teamName}</td>
                                 <td>${t.userName}</td>
                                 <td>
-                                    <a href="team?action=update&id=${t.id}&userName=${t.userName}" class="btn btn-warning">Update</a>
+                                    <a href="team?action=update&id=${t.id}&userName=${t.userName}" class="btn btn-warning">Edit</a>
                                     <a href="team?action=delete&id=${t.id}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                 </td>
                             </tr>
